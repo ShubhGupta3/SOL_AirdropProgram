@@ -9,6 +9,7 @@ const {
   } = require("@solana/web3.js");
 // Generating new wallet
 const newPair = new Keypair();
+console.log(newPair);
 
 
 // Fetching public key and private key from KeyPair
@@ -23,7 +24,8 @@ const getWalletBalance = async () => {
         const walletBalance = await connection.getBalance(
             new PublicKey(myWallet.publicKey)
         );
-        console.log(`Wallet balance: ${walletBalance}`);
+        console.log(`=> For wallet address ${publicKey}`);
+        console.log(`   Wallet balance: ${parseInt(walletBalance)/LAMPORTS_PER_SOL}SOL`);
     } catch (err) {
         console.log(err);
     }
